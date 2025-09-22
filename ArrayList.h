@@ -5,17 +5,22 @@
 using namespace std;
 
 template <typename T>
+
 class ArrayList {
+
 private:
-    T* data;
-    int tail;
-    int capacity;
+    T* array = NULL;
+    int size;
 
 public:
-    ArrayList(int initialCapacity = 10) {
-        data = new T[initialCapacity];
-        tail = 0;
-        capacity = initialCapacity;
+
+    ArrayList() {
+        this->array = new T[size];
+    }
+
+    ArrayList(T data){
+        this->array = new T[size]
+        add(data);
     }
 
     ~ArrayList() {
@@ -23,18 +28,30 @@ public:
     }
 
     void add(const T& value) {
-        if (tail >= capacity) {
-            int newCapacity = capacity * 2;
-            T* newData = new T[newCapacity];
-            for (int i = 0; i < tail; ++i) {
-                newData[i] = data[i];
-            }
-            delete[] data;
-            data = newData;
-            capacity = newCapacity;
-        }
-        data[tail++] = value;
+        this->size++;
+       
     }
+
+    T get (T index) {
+          
+    }
+
+    void set(T index, T object){
+
+    }
+
+    T remove(T index){
+
+    }
+
+    void Delete(T index){
+
+    }
+
+    int size(){
+        cout<<this->size<<endl;
+    }
+
 };
 
 #endif // ARRAYLIST_H
