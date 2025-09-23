@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-#include "ArrayList.h"
+#include "ArrayList.cpp"
 
 using namespace std;
 int main() {
