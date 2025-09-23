@@ -27,9 +27,17 @@ public:
     }
 
     void add(const T& Object) {
+
         if (count == capacity) {
-            resize(capacity * 2);
-        }
+            T* newData = new T[capacity*2];
+            for (int i = 0; i < count; i++) {
+                newData[i] = data[i];
+            }
+            delete[] data;
+            data = newData;
+            capacity = capacity*2;
+            }
+
         data[count++] = Object;
     }
 
