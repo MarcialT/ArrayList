@@ -39,21 +39,21 @@ public:
     }
 
     T get(int index) const {
-        if (index < 0  index >= count) {
+        if (index < 0  || index >= count) {
             throw std::out_of_range("Index out of bounds");
         }
         return data[index];
     }
 
     void set(int index, const T& object) {
-        if (index < 0  index >= count) {
+        if (index < 0 || index >= count) {
             throw std::out_of_range("Index out of bounds");
         }
         data[index] = object;
     }
 
     T remove(int index) {
-        if (index < 0  index >= count) {
+        if (index < 0  || index >= count) {
             throw std::out_of_range("Index out of bounds");
         }
         T removeElement = data[index];
@@ -65,7 +65,7 @@ public:
     }
 
     void Delete(int index) {
-        if (index < 0  index >= count) {
+        if (index < 0 || index >= count) {
             throw std::out_of_range("Index out of bounds");
         }
         for (int i = index; i < count - 1; ++i) {
