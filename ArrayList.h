@@ -2,6 +2,7 @@
 #define ARRAYLIST_H
 
 #include <iostream>
+#include <stdexcept>
 using namespace std;
 
 template <typename T>
@@ -9,35 +10,41 @@ template <typename T>
 class ArrayList {
 
 private:
-    T* array = NULL;
-    int size;
+    T* data;
+    int capacity;
+    int count;
 
 public:
 
-    ArrayList() {
-        this->array = new T[size];
-    }
-
-    ArrayList(T data){
-        this->array = new T[size]
-        add(data);
+    ArrayList(int initialCapacity = 10) {
+        capacity = initialCapacity;
+        data = new T[capacity];
+        count = 0;
     }
 
     ~ArrayList() {
         delete[] data;
     }
 
-    void add(const T& value) {
-        this->size++;
-       
+    void add(const T& Object) {
+        if (count == capacity) {
+            resize(capacity * 2);
+        }
+        data[count++] = Object;
     }
 
-    T get (T index) {
-          
+    T get (int index) const {
+          if (index < 0 || index >= count) {
+            throw std::out_of_range("Index out of bounds");
+        }
+        return data[index];
     }
 
-    void set(T index, T object){
-
+    void set(int index,const T& object){
+        if (index < 0 || index >= count) {
+            throw std::out_of_range("Index out of bounds");
+        }
+        data[index] = object;
     }
 
     T remove(T index){
@@ -48,8 +55,8 @@ public:
 
     }
 
-    int size(){
-        cout<<this->size<<endl;
+    int size() const {
+        return count;
     }
 
 };
