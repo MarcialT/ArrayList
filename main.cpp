@@ -14,7 +14,9 @@ int main() {
         cout << "2. Obtener valor por indice\n";
         cout << "3. Eliminar valor por indice\n";
         cout << "4. Mostrar tamano de la lista\n";
-        cout << "5. Salir\n";
+        cout << "5. Mostrar primer nodo\n";
+        cout << "6. Ir al siguiente nodo\n";
+        cout << "7. Salir\n";
         cout << "Seleccione una opcion: ";
         cin >> opcion;
 
@@ -48,13 +50,19 @@ int main() {
                 cout << "Tamano de la lista: " << list.size() << endl;
                 break;
             case 5:
-                cout << "Saliendo..." << endl;
+                cout << "El primer elemento de la lista es: " << list.first() << endl;
                 break;
+            case 6:
+                cout << "El siguiente nodo de la lista es: " << list.next() << endl;
+                break;
+            case 7:
+                cout << "Saliendo..." << endl;
+               break;
             default:
                 cout << "Opcion invalida." << endl;
         }
         cout << endl;
-    } while (opcion != 5);
+    } while (opcion != 7);
 
     return 0;
 }

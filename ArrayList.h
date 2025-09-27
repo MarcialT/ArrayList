@@ -16,6 +16,7 @@ private:
     };
     Nodo *cabeza;
     int count;
+    Nodo *actual;
 
    
 public:
@@ -33,6 +34,19 @@ public:
     void Delete(int index);
 
     int size() const;
+
+    T first();
+
+    T next();
+
+    T priore();
+
+    T last();
+    
+    T viewList();
+
+    T viewReverseList();
+
 };
 
 #endif // ARRAYLIST_H

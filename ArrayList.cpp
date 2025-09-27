@@ -6,7 +6,7 @@ template<typename T>
 ArrayList<T>::Nodo::Nodo(const T& d) : dato(d), siguiente(nullptr) {}
 
 template<typename T> 
-ArrayList<T>::ArrayList() : cabeza(nullptr), count(0){}
+ArrayList<T>::ArrayList() : cabeza(nullptr), count(0), actual(nullptr){}
 
 template<typename T>
 ArrayList<T>::~ArrayList(){
@@ -87,3 +87,46 @@ template<typename T>
 int ArrayList<T>::size() const{
     return count;
 }
+
+template<typename T>
+T ArrayList<T>::first(){
+    actual = cabeza;
+    if (actual == nullptr){
+        throw out_of_range("La lista está vacía.");
+ }
+    return actual->dato;
+}
+
+template<typename T>
+T ArrayList<T>::next(){
+    if (actual == nullptr)
+        throw out_of_range("La lista está vacía.");
+    if (actual -> siguiente == nullptr)
+        throw out_of_range("No hay siguiente nodo.");
+    
+    actual = actual -> siguiente;
+    return actual -> dato;
+    }
+
+
+
+template<typename T>
+T ArrayList<T>::priore(){
+
+}
+
+template<typename T>
+T ArrayList<T>::last(){
+
+}
+
+template<typename T>
+T ArrayList<T>::viewList(){
+
+}
+
+template<typename T>
+T ArrayList<T>::viewReverseList(){
+
+}
+
