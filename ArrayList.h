@@ -2,18 +2,24 @@
 #define ARRAYLIST_H
 
 #include <iostream>
+#include <stdexcept>
 #pragma once
 using namespace std;
 
 template <typename T>
 class ArrayList {
 private:
-    T* data;
-    int capacity;
+    struct Nodo {
+        T dato;
+        Nodo* siguiente;
+        Nodo(const T& d);
+    };
+    Nodo *cabeza;
     int count;
 
+   
 public:
-    ArrayList(int initialCapacity = 10);
+    ArrayList();
     ~ArrayList();
 
     void add(const T& Object);
