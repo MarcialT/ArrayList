@@ -1,17 +1,13 @@
 
 #include"ArrayList.h"
 
-
-template<typename T>
-ArrayList<T>::Nodo::Nodo(const T& d) : dato(d), siguiente(nullptr) {}
-
 template<typename T> 
 ArrayList<T>::ArrayList() : cabeza(nullptr), count(0), actual(nullptr){}
 
 template<typename T>
 ArrayList<T>::~ArrayList(){
     while (cabeza){
-        Nodo* temp =cabeza;
+        Node* temp =cabeza;
         cabeza = cabeza -> siguiente;
         delete temp;
     }
@@ -20,11 +16,11 @@ ArrayList<T>::~ArrayList(){
 
 template<typename T>
 void ArrayList<T>::add(const T& Object){
-     Nodo* nuevo = new Nodo (Object);
+     Node* nuevo = new Nodo (Object);
      if (cabeza == nullptr){
         cabeza = nuevo;
      } else {
-        Nodo* aux = cabeza;
+        Node* aux = cabeza;
         while (aux -> siguiente != nullptr){
             aux = aux -> siguiente;
         }
@@ -36,7 +32,7 @@ void ArrayList<T>::add(const T& Object){
 template<typename T>
 T ArrayList<T>::get(int index) const{
    if  (index < 0 || index >= count ) throw out_of_range("Indice fuera de rango");
-   Nodo* aux = cabeza;
+   Node* aux = cabeza;
    for (int i = 0; i < index; ++i) {
     aux = aux -> siguiente;
     }
@@ -46,7 +42,7 @@ T ArrayList<T>::get(int index) const{
 template<typename T>
 void ArrayList<T>::set(int index, const T& object){
     if (index < 0 || index >= count) throw out_of_range("indice fuera de rango");
-    Nodo* aux = cabeza;
+    Node* aux = cabeza;
     for ( int i = 0; i < index; ++i){
         aux = aux -> siguiente;
     }
@@ -56,7 +52,7 @@ void ArrayList<T>::set(int index, const T& object){
 template<typename T>
 T ArrayList<T>::remove(int index){
     if (index < 0 || index >= count) throw out_of_range("indice fuera de rango");
-    Nodo* temp;
+    Node* temp;
     T valor;
     if (index == 0){
         temp = cabeza;
@@ -64,7 +60,7 @@ T ArrayList<T>::remove(int index){
         valor = temp -> dato;
         delete temp;
     } else {
-        Nodo* aux = cabeza;
+        Node* aux = cabeza;
         for (int i = 0; i < index - 1; ++i){
             aux = aux -> siguiente;
         }

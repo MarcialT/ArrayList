@@ -2,6 +2,7 @@
 #define ARRAYLIST_H
 
 #include <iostream>
+#include "node/node.cpp"
 #include <stdexcept>
 #pragma once
 using namespace std;
@@ -9,14 +10,9 @@ using namespace std;
 template <typename T>
 class ArrayList {
 private:
-    struct Nodo {
-        T dato;
-        Nodo* siguiente;
-        Nodo(const T& d);
-    };
-    Nodo *cabeza;
+    Node *cabeza;
     int count;
-    Nodo *actual;
+    Node *actual;
 
    
 public:
