@@ -2,20 +2,19 @@
 #define ARRAYLIST_H
 
 #include <iostream>
-#include "node/node.cpp"
+#include "../node/node.cpp"
 #include <stdexcept>
 #pragma once
 using namespace std;
 
 template <typename T>
 class ArrayList {
-private:
-    Node *cabeza;
-    int count;
-    Node *actual;
 
-   
 public:
+    Node<T> *cabeza;
+    int count;
+    Node<T> *actual;
+
     ArrayList();
     ~ArrayList();
 
@@ -39,9 +38,8 @@ public:
 
     T last();
     
-    T viewList();
+    void viewList();
 
-    T viewReverseList();
 
 };
 

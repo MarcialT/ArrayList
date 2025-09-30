@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-#include "ArrayList.cpp"
+#include "Arraylist/ArrayList.cpp"
 
 using namespace std;
 int main() {
@@ -16,7 +16,10 @@ int main() {
         cout << "4. Mostrar tamano de la lista\n";
         cout << "5. Mostrar primer nodo\n";
         cout << "6. Ir al siguiente nodo\n";
-        cout << "7. Salir\n";
+        cout << "7. Mostrar el ultimo nodo\n";
+        cout << "8. Ir al anterior nodo\n";
+        cout << "9. Ver lista completa\n";
+        cout << "10. Salir\n";
         cout << "Seleccione una opcion: ";
         cin >> opcion;
 
@@ -50,19 +53,45 @@ int main() {
                 cout << "Tamano de la lista: " << list.size() << endl;
                 break;
             case 5:
+                try {
                 cout << "El primer elemento de la lista es: " << list.first() << endl;
+                } catch (const out_of_range& e) {
+                    cout << e.what() << endl;
+                }
                 break;
             case 6:
+            try {
                 cout << "El siguiente nodo de la lista es: " << list.next() << endl;
+            } catch (const out_of_range& e){
+                cout << e.what() << endl;
+            }
                 break;
             case 7:
+                try {
+                    cout << "El ultimo elemento de la lista es: " << list.last() << endl;
+                } catch (const out_of_range& e) {
+                    cout << e.what() << endl;
+                }
+                break;
+            case 8: 
+                try {
+                    cout << "El anterior elemento en la lista es: " << list.priore() << endl;
+                } catch (const out_of_range& e) {
+                    cout << e.what() << endl;
+                }
+                break;
+            case 9:
+                cout << "Lista completa: ";
+                list.viewList();
+                break;
+            case 10:
                 cout << "Saliendo..." << endl;
                break;
             default:
                 cout << "Opcion invalida." << endl;
         }
         cout << endl;
-    } while (opcion != 7);
+    } while (opcion != 10);
 
     return 0;
 }

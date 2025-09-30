@@ -5,10 +5,10 @@ using namespace std;
 
 template <typename T>
 class Node {
-    private:
-        T dato;
-        Node* siguiente;
     public:
+        T dato;
+        Node<T>* siguiente, * anterior;
+
         Node(const T& d);
     };
 
